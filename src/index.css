@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --color-crypto-gold: #f7931a;
+  --color-crypto-eth: #627eea;
+  --color-crypto-base: #0052ff;
+  --color-crypto-green: #00ff7f;
+}
+
+body {
+  background-color: #050511;
+  color: white;
+  overflow: hidden;
+  touch-action: none; /* Prevent pull-to-refresh on mobile */
+}
