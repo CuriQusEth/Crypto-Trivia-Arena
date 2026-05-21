@@ -10,34 +10,37 @@ Players compete in trivia arenas answering questions about Bitcoin, Ethereum, Ba
 - **Ranks**: Rise from Bronze, through Silver and Gold, all the way to Diamond status based on your performance.
 - **Base On-Chain Integration**: Play seamlessly with your wallet. Sign zero-value verification transactions, verify leaderboards with ERC-8021 tracking natively on-chain, and interact with the AI agent ecosystem!
 
-## AI Agent Ecosystem
+## AI Agent Ecosystem & Model Context Protocol (MCP)
 
-This project ships with out-of-the-box infrastructure for on-chain AI behavior execution:
+This project incorporates a robust AI orchestration schema flawlessly establishing autonomous quiz automations and real-time scaling operations inside the orchestration schema.
 
-1. **ERC-8004 Support**: Configured to process and identify interactive AI Agents inside the orchestrator schema.
-2. **MCP (Model Context Protocol)**: Exposes endpoints for active command execution via internal and external AI operations, allowing the Trivia Orchestrator Agent to run quiz automation and scaling game management tasks.
+### Agent Registration (ERC-8004 Compatible)
+Our orchestrator acts as an officially published decentralized agent schema. The metadata identity card is structured publicly and can be reviewed directly at:
+- Endpoint: `/.well-known/agent-card.json`
+
+### MCP Connection Guide
+The Model Context Protocol (MCP) endpoints natively enable robust automated integrations:
+- **`GET /api/mcp`**: Active status, capability discovery, and MCP connection heartbeat endpoint.
+- **`POST /api/mcp`**: Root execution listener for handling tools (`get_race_status`, `start_race`, `get_leaderboard`, `optimize_speed`, `get_track_info`), prompts list, and direct orchestration payloads.
+- **`GET /api/agent`**: Primary verification endpoint displaying our orchestrator's name, platform signature validation, and version data.
 
 ## Tech Stack
 
-- Setup: React SPA with Vite
-- Express backend for agent interactions
-- Tailwind CSS & Framer Motion for rapid layout & animations
-- Wagmi & Viem for robust multichain interactions and smart connectivity
-- Zustand for lightning-fast global state
-
-## Endpoints Provided By Embedded Express
-
-- `GET /api/agent`: Basic agent data & identity endpoint.
-- `GET /api/mcp`: Status endpoint detailing active MCP capabilities.
-- `POST /api/mcp`: Command listener for internal MCP payloads.
+- **Framework**: Next.js 14 (App Router Support) / React Structure
+- **Design/UI**: Tailwind CSS & Framer Motion for rapid layouts & slick interactions
+- **On-Chain Config**: Wagmi & Viem enabling swift multichain connections alongside Base Mainnet.
+- **Global State**: Zustand for lightning-fast architecture.
 
 ## Running Locally
 
-1. `npm install`
-2. `npm run dev` (Starts Vite alongside the Express server at localhost:3000)
+1. Install environment layers:
+   ```bash
+   npm install
+   ```
 
-## Build for Production
+2. Start the local server:
+   ```bash
+   npm run dev
+   ```
 
-Run `npm run build`. This generates frontend assets to `dist/` and compiles the Node.js server seamlessly into `dist/server.cjs`.
-
-Run `npm run start` to start the compiled Express distribution.
+*(Local environment processes Next.js equivalent routes alongside rendering architecture smoothly via the designated protocol mappings).*

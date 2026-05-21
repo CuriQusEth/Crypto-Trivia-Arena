@@ -2,6 +2,23 @@
   "name": "Crypto Trivia Arena Orchestrator",
   "description": "Crypto Trivia Arena platformunda çalışan ERC-8004 uyumlu AI Agent. Trivia game management, crypto knowledge battles, multi-arena orchestration ve real-time quiz automation yapan akıllı orchestrator.",
   "version": "1.0.0",
+  "skills": [
+    {
+      "id": "trivia-game-management",
+      "name": "Trivia Game Management",
+      "description": "Manage crypto trivia games natively on Base."
+    },
+    {
+      "id": "crypto-knowledge-battles",
+      "name": "Crypto Knowledge Battles",
+      "description": "Orchestrate real-time competitive crypto battles."
+    },
+    {
+      "id": "real-time-quiz-automation",
+      "name": "Real-time Quiz Automation",
+      "description": "Generate questions and automate scoring."
+    }
+  ],
   "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
   "image": "https://crypto-trivia-arena.vercel.app/logo.png",
   "wallets": {
