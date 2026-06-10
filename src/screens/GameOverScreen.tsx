@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useGameStore } from '../store/useGameStore';
 import confetti from 'canvas-confetti';
-import { Trophy, RefreshCw, UploadCloud } from 'lucide-react';
-import { useAccount, useSignMessage } from 'wagmi';
+import { Trophy, RefreshCw, UploadCloud, Sun } from 'lucide-react';
+import { useAccount, useSignMessage, useSendTransaction } from 'wagmi';
 
 export function GameOverScreen() {
   const { score, maxStreak, resetGame } = useGameStore();
   const { isConnected, address } = useAccount();
   const { signMessage, isPending, isSuccess } = useSignMessage();
+  const { sendTransaction, isPending: isTxPending } = useSendTransaction();
   const [signedRecord, setSignedRecord] = useState(false);
 
   useEffect(() => {
@@ -57,6 +58,15 @@ export function GameOverScreen() {
     );
   };
 
+  const sendGMTransaction = () => {
+    if (!isConnected || !address) return;
+    sendTransaction({
+      to: '0xcD0dd3716C5561De47a24949335dF8a8CD8F71a3',
+      data: '0x', // basic tx
+      value: BigInt(0),
+    });
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
@@ -70,6 +80,18 @@ export function GameOverScreen() {
         animate={{ y: 0 }}
         className="z-10 bg-[#13132B] p-8 rounded-3xl border border-white/10 w-full max-w-sm text-center shadow-2xl relative"
       >
+        <div className="flex justify-end absolute right-4 top-4">
+          {isConnected && (
+            <button
+              onClick={sendGMTransaction}
+              disabled={isTxPending}
+              className="px-3 py-2 rounded-lg bg-[#E8A020]/20 hover:bg-[#E8A020]/30 border border-[#E8A020]/40 text-[#E8A020] transition-colors flex items-center gap-2 font-['Cinzel'] text-xs font-bold"
+            >
+              <Sun className="w-4 h-4" /> {isTxPending ? 'Sending...' : 'Say GM'}
+            </button>
+          )}
+        </div>
+
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-yellow-500 w-20 h-20 rounded-full flex items-center justify-center border-4 border-[#050511] shadow-[0_0_20px_rgba(234,179,8,0.5)]">
           <Trophy className="text-white w-10 h-10" />
         </div>
